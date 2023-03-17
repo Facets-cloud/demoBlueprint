@@ -9,13 +9,14 @@
     "name": "mongo-atlas"
   },
   "spec": {
-      "mongo_version": "6.0.2",
+      "mongodb_version": "6.0.2",
       "authenticated": true,
       "size": {
           "cpu": "1",
           "memory": "3Gi",
           "instance_count": 2,
-          "volume": "10G"
+          "volume": "10G",
+          "replica_count": 2
       }
   },
   "advanced": {

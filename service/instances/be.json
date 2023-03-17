@@ -84,7 +84,7 @@
 		},
 		"restart_policy": "OnFailure",
 		"env": {
-            "ATLAS_URI": "${mongo.deafult.out.interfaces.cluster.connection_string}"
+            "ATLAS_URI": "${mongo.main-mongo.out.interfaces.cluster.connection_string}"
 		}
 	}
 }
