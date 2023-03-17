@@ -1,90 +1,44 @@
 {
-	"kind": "service",
-	"flavor": "default",
-	"version": "0.1",
+	"$schema": "https://facets-cloud.github.io/facets-schemas/schemas/service/service.schema.json",
 	"metadata": {
-		"name": "be"
+	  "name": "retool"
 	},
 	"disabled": true,
-	"advanced": {
-		"aws": {
-			"iam": {
-				"artifact-s3-rw": {
-					"arn": "${var.infra_output.resources.s3.artifact.iam_policies.READ_WRITE}"
-				},
-				"deployment-context-s3-rw": {
-					"arn": "${var.infra_output.resources.s3.deployment-context.iam_policies.READ_WRITE}"
-				},
-				"state-s3-rw": {
-					"arn": "${var.infra_output.resources.s3.state.iam_policies.READ_WRITE}"
-				},
-				"dynamodb-all-rw": {
-					"arn": "${var.infra_output.resources.dynamodb.state-lock.iam_policies.READ_WRITE}"
-				},
-				"r53-all": {
-					"arn": "arn:aws:iam::aws:policy/AmazonRoute53FullAccess"
-				},
-				"iam-full-access": {
-					"arn": "arn:aws:iam::aws:policy/IAMFullAccess"
-				},
-				"vpc-full-access": {
-					"arn": "arn:aws:iam::aws:policy/AmazonVPCFullAccess"
-				},
-				"ec2-container-registry": {
-					"arn": "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess"
-				}
-			}
-		}
-	},
+	"flavor": "default",
+	"kind": "service",
+	"version": "0.1",
 	"spec": {
-		"type": "application",
-		"enable_host_anti_affinity": true,
-		"release": {
-			"build": {
-				"artifactory": "default",
-				"name": "demo_be"
-			},
-			"disruption_policy": {
-				"max_unavailable": 0
-			},
-			"strategy": {
-				"type": "RollingUpdate",
-				"max_available": 1,
-				"max_unavailable": 0
-			}
+	  "type": "application",
+	  "enable_host_anti_affinity": true,
+	  "release": {
+		"build": {
+			"artifactory": "default",
+			"name": "demo_be"	
 		},
-		"runtime": {
-			"size": {
-				"cpu": "1000m",
-				"memory": "2000Mi"
-			},
-			"autoscaling": {
-				"min": 1,
-				"max": 1,
-				"cpu_threshold": 50
-			},
-			"health_checks": {
-				"start_up_time": 35,
-				"period": 30,
-				"port": 4200,
-				"timeout": 3
-			},
-			"ports": {
-				"http": {
-					"port": 4200,
-					"protocol": "tcp"
-				}
-			},
-			"metrics": {
-				"prom-metrics": {
-					"path": "/actuator/prometheus",
-					"port_name": "metrics"
-				}
-			}
-		},
-		"restart_policy": "OnFailure",
-		"env": {
-            "ATLAS_URI": "${mongo.main-mongo.out.interfaces.cluster.connection_string}"
+		"strategy": {
+		  "type": "RollingUpdate",
+		  "max_available": 1,
+		  "max_unavailable": 0
 		}
+	  },
+	  "env": {},
+	  "runtime": {
+		"health_checks": {
+		  "port": "5200",
+		  "start_up_time": 100,
+		  "timeout": 100,
+		  "period": 10
+		},
+		"ports": {
+		  "http": {
+			"port": "80",
+			"protocol": "tcp"
+		  }
+		},
+		"size": {
+		  "cpu": "200m",
+		  "memory": "200Mi"
+		}
+	  }
 	}
-}
+  }
