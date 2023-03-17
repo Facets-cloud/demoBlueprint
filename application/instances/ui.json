@@ -1,0 +1,54 @@
+{
+    "$schema": "https://facets-cloud.github.io/facets-schemas/schemas/service/service.schema.json",
+    "kind": "service",
+    "flavor": "default",
+    "version": "0.1",
+    "metadata": {
+        "name": "ui"
+    },
+    "disabled": true,
+    "spec": {
+        "type": "application",
+        "enable_host_anti_affinity": false,
+        "release": {
+            "build":{
+                "artifactory": "facets-config-auto",
+                "name": "demo_ui"
+            },
+            "disruption_policy": {
+                "max_unavailable": 0
+            },
+            "strategy": {
+                "type": "RollingUpdate",
+                "max_available": 1,
+                "max_unavailable": 0
+            }
+        },
+        "runtime": {
+            "size": {
+                "cpu": "200m",
+                "memory": "500Mi"
+            },
+            "autoscaling": {
+                "min": 1,
+                "max": 1,
+                "cpu_threshold": 50
+            },
+            "health_checks": {
+                "liveness_url": "main",
+                "start_up_time": 15,
+                "period": 15,
+                "readiness_url": "main",
+                "port": 3200,
+                "timeout": 3
+            },
+            "ports": {
+                "main": {
+                    "port": 3200,
+                    "protocol": "tcp"
+                }
+            }
+        },
+        "restart_policy": "OnFailure"
+    }
+}
