@@ -12,7 +12,7 @@
         "enable_host_anti_affinity": false,
         "release": {
             "build":{
-                "artifactory": "facets-config-auto",
+                "artifactory": "default",
                 "name": "demo_ui"
             },
             "disruption_policy": {
@@ -35,16 +35,14 @@
                 "cpu_threshold": 50
             },
             "health_checks": {
-                "liveness_url": "main",
                 "start_up_time": 15,
                 "period": 15,
-                "readiness_url": "main",
-                "port": 3200,
+                "port": "80",
                 "timeout": 3
             },
             "ports": {
                 "main": {
-                    "port": 3200,
+                    "port": "80",
                     "protocol": "tcp"
                 }
             }

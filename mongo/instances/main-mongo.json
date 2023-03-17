@@ -13,7 +13,9 @@
       "authenticated": true,
       "size": {
           "cpu": "1",
-          "memory": "2Gi"
+          "memory": "3Gi",
+          "instance_count": 2,
+          "volume": "10G"
       }
   },
   "advanced": {

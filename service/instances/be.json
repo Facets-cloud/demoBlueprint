@@ -41,7 +41,7 @@
 		"enable_host_anti_affinity": true,
 		"release": {
 			"build": {
-				"artifactory": "facets-config-auto",
+				"artifactory": "default",
 				"name": "demo_be"
 			},
 			"disruption_policy": {
@@ -64,20 +64,14 @@
 				"cpu_threshold": 50
 			},
 			"health_checks": {
-				"liveness_url": "/public/v1/logo",
 				"start_up_time": 35,
 				"period": 30,
-				"readiness_url": "/public/v1/logo",
-				"port": 8080,
+				"port": 4200,
 				"timeout": 3
 			},
 			"ports": {
 				"http": {
-					"port": 8080,
-					"protocol": "tcp"
-				},
-				"metrics": {
-					"port": 8081,
+					"port": 4200,
 					"protocol": "tcp"
 				}
 			},
@@ -90,34 +84,7 @@
 		},
 		"restart_policy": "OnFailure",
 		"env": {
-			"SCHEDULER_ENABLED": "true",
-			"tfSourceVersion": "tf_0.13_upgradenew",
-			"CHINA_CC_HOST": "na",
-			"CHINA_CC_INTERNAL_API_AUTH_TOKEN": "na",
-			"facets_only": "true",
-			"default_deployment_job_type": "KUBERNETES_POD",
-			"net_tun_file_type": "CharDevice",
-			"cc_tf_dynamo_table": "${var.infra_output.resources.dynamodb.state-lock.table_name}",
-			"cc_tf_state_bucket": "${var.infra_output.resources.s3.state.bucket_name}",
-			"cc_artifact_s3bucket": "${var.infra_output.resources.s3.artifact.bucket_name}",
-			"cc_artifact_s3bucket_region": "${var.infra_output.resources.s3.artifact.bucket_region}",
-			"cc_deployment_bucket": "${var.infra_output.resources.s3.deployment-context.bucket_name}",
-			"substackBucket": "${var.infra_output.resources.s3.deployment-context.bucket_name}",
-			"substackBucketRegion": "${var.infra_output.resources.s3.deployment-context.bucket_region}",
-			"cc_vpc_id": "${var.infra_output.resources.base_infra.vpc_details.vpc_id}",
-			"cc_vpc_cidr": "${var.infra_output.resources.cluster.meta.cidr}",
-			"cc_aws_region": "${var.infra_output.resources.cluster.meta.region}",
-			"cc_tf_state_region": "${var.infra_output.resources.cluster.meta.region}",
-			"cc_route_table_id": "${var.infra_output.resources.base_infra.vpc_details.private_route_table_ids_list}",
-			"INTERNAL_API_AUTH_TOKEN": "${blueprint.self.secrets.INTERNAL_API_AUTH_TOKEN}",
-			"GOOGLE_CLIENT_SECRET": "${blueprint.self.secrets.GOOGLE_CLIENT_SECRET}",
-			"CALLBACK_HOST_NAME": "${var.infra_output.resources.ingress.control.domain}",
-			"cc_codebuild_name": "${var.infra_output.resources.codebuild.facets.project_name}",
-			"cc_codebuild_log_group": "${var.infra_output.resources.codebuild.facets.log_group_name}",
-			"TF_GIT_USERNAME": "${blueprint.self.secrets.TF_GIT_USERNAME}",
-			"TF_GIT_PASSWORD": "${blueprint.self.secrets.TF_GIT_PASSWORD}",
-			"facets_ecr_aws_secret": "${blueprint.self.secrets.facets_ecr_aws_secret}",
-			"facets_ecr_aws_key": "${blueprint.self.secrets.facets_ecr_aws_key}"
+            "ATLAS_URI": "${mongo.deafult.out.interfaces.cluster.connection_string}"
 		}
 	}
 }
