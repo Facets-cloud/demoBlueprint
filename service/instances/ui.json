@@ -30,9 +30,11 @@
                 "memory": "500Mi"
             },
             "health_checks": {
+                "liveness_url": "main",
                 "start_up_time": 15,
                 "period": 15,
-                "port": "80",
+                "readiness_url": "main",
+                "port": 80,
                 "timeout": 3
             },
             "ports": {
