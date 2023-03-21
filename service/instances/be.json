@@ -21,9 +21,13 @@
 		  "max_unavailable": 0
 		}
 	  },
-	  "env": {},
+	  "env": {
+	  "ATLAS_URI": "${mongo.main-mongo.out.interfaces.cluster.connection_string}/meanStackExample?retryWrites=true&w=majority"
+	  },
 	  "runtime": {
 		"health_checks": {
+		"liveness_url": "/",
+        	"readiness_url": "/",
 		  "port": "5200",
 		  "start_up_time": 100,
 		  "timeout": 100,
@@ -31,7 +35,7 @@
 		},
 		"ports": {
 		  "http": {
-			"port": "80",
+			"port": "5200",
 			"protocol": "tcp"
 		  }
 		},
