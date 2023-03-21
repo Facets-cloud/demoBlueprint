@@ -34,12 +34,12 @@
                 "start_up_time": 15,
                 "period": 15,
                 "readiness_url": "main",
-                "port": 80,
+                "port": 8080,
                 "timeout": 3
             },
             "ports": {
                 "main": {
-                    "port": "80",
+                    "port": "8080",
                     "protocol": "tcp"
                 }
             }
