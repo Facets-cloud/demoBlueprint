@@ -26,8 +26,8 @@
 	  },
 	  "runtime": {
 		"health_checks": {
-		"liveness_url": "/",
-        	"readiness_url": "/",
+		"liveness_url": "/employees",
+        	"readiness_url": "/employees",
 		  "port": "5200",
 		  "start_up_time": 100,
 		  "timeout": 100,
