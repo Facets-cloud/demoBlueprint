@@ -22,7 +22,7 @@
 		}
 	  },
 	  "env": {
-	  "ATLAS_URI": "${mongo.main-mongo.out.interfaces.cluster.connection_string}/meanStackExample?retryWrites=true&w=majority"
+	  "ATLAS_URI": "${mongo.main-mongo.out.interfaces.cluster.connection_string}"
 	  },
 	  "runtime": {
 		"health_checks": {
