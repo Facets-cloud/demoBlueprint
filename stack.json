@@ -8,7 +8,10 @@
         "DEMO_SECRET": {
             "secret": "true",
             "value": "demo-secret"
-        }
+        },
+        "DEMO_VAR": {
+            "value": "test-value"
+          }
     },
     "componentVersions": {
         "KUBERNETES": "1.21"
