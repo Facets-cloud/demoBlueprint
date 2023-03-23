@@ -9,8 +9,8 @@
             "secret": "true",
             "value": "demo-secret"
         },
-        "DEMO_VAR": {
-            "value": "test-value"
+        "TITLE": {
+            "value": "Mr."
           }
     },
     "componentVersions": {
