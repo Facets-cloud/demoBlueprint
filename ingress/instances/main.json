@@ -26,7 +26,7 @@
           "backend": {
             "comment": "back-end",
             "domain_prefix": "",
-            "path": "/api/",
+            "path": "/api/employees/",
             "port": "${service.be.out.interfaces.http.port}",
             "service_name": "${service.be.out.interfaces.http.name}"
         }
