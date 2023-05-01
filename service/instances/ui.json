@@ -6,7 +6,7 @@
     "metadata": {
         "name": "ui"
     },
-    "disabled": true,
+    "disabled": false,
     "spec": {
         "type": "application",
         "enable_host_anti_affinity": false,

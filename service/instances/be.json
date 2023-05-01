@@ -3,7 +3,7 @@
 	"metadata": {
 		"name": "retool"
 	},
-	"disabled": true,
+	"disabled": false,
 	"flavor": "default",
 	"kind": "service",
 	"version": "0.1",
