@@ -15,10 +15,7 @@
       "strategy": {
         "type": "RollingUpdate"
       },
-      "build": {
-        "artifactory": "default",
-        "name": "replace-with-app-name"
-      }
+      "image": "quay.io/brancz/prometheus-example-app:v0.3.0"
     },
     "runtime": {
       "autoscaling": {
@@ -28,13 +25,13 @@
       },
       "ports": {
         "http": {
-          "port": 8080,
+          "port": "8080",
           "protocol": "tcp"
         }
       },
       "size": {
-        "cpu": "300m",
-        "memory": "1Gi",
+        "cpu": "100m",
+        "memory": "100Mi",
         "cpu_limit": "1000m"
       },
       "health_checks": {
