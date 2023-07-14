@@ -20,7 +20,7 @@
     "runtime": {
       "metrics": {
         "http-metrics": {
-          "path": "/metric",
+          "path": "/metrics",
           "port_name": "http"
         }
       },
