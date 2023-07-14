@@ -18,6 +18,12 @@
       "image": "quay.io/brancz/prometheus-example-app:v0.3.0"
     },
     "runtime": {
+      "metrics": {
+        "http-metrics": {
+          "path": "/metrics",
+          "port_name": "http"
+        }
+      },
       "autoscaling": {
         "min": 1,
         "max": 1,
