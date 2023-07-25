@@ -17,7 +17,7 @@
       },
       "build": {
         "artifactory": "default",
-        "name": "replace-with-app-name"
+        "name": "env-config-api"
       }
     },
     "runtime": {
@@ -28,7 +28,7 @@
       },
       "ports": {
         "http": {
-          "port": 8080,
+          "port": 3000,
           "protocol": "tcp"
         }
       },
@@ -40,13 +40,15 @@
       "health_checks": {
         "timeout": 10,
         "period": 30,
-        "port": 8080,
+        "port": 3000,
         "start_up_time": 15
       },
       "volumes": {}
     },
     "env": {
-      "LOG_LEVEL": "INFO"
+      "LOG_LEVEL": "INFO",
+      "PREFIX": "ev_",
+      "ev_mongo_url": "${blueprint.self.secrets.DEMO_SECRET}"
     }
   }
 }
