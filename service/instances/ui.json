@@ -14,7 +14,7 @@
             "build":{
                 "artifactory": "default",
                 "name": "demo_ui"
-            }
+            },
             "strategy": {
                 "type": "RollingUpdate",
                 "max_available": 1,
