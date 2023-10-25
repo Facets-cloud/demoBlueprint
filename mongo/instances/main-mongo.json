@@ -14,9 +14,9 @@
       "size": {
           "cpu": "1",
           "memory": "3Gi",
-          "instance_count": 2,
+          "instance_count": 1,
           "volume": "10G",
-          "replica_count": 2
+          "replica_count": 1
       }
   },
   "advanced": {
