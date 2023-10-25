@@ -9,7 +9,7 @@
 	"version": "0.1",
 	"spec": {
 		"type": "application",
-		"enable_host_anti_affinity": true,
+		"enable_host_anti_affinity": false,
 		"release": {
 			"build": {
 				"artifactory": "default",
