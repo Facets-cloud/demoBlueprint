@@ -57,7 +57,7 @@
         },
         "alertmanager": {
           "alertmanagerSpec": {
-            "storageSpec": {
+            "storage": {
               "volumeClaimTemplate": {
                 "spec": {
                   "resources": {
