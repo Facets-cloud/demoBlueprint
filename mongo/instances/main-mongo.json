@@ -20,6 +20,12 @@
       }
   },
   "advanced": {
-    "k8s": {}
+    "k8s": {
+      "mongodb": {
+        "values": {
+          "architecture": "standalone"
+        }
+      }
+    }
   }
 }
