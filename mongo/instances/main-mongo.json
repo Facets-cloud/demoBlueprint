@@ -15,7 +15,7 @@
           "cpu": "1",
           "memory": "3Gi",
           "instance_count": 1,
-          "volume": "10G",
+          "volume": "1G",
           "replica_count": 1
       }
   },
