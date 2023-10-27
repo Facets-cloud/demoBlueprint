@@ -23,8 +23,8 @@
         },
         "runtime": {
             "size": {
-                "cpu": "200m",
-                "memory": "500Mi"
+                "cpu": "100m",
+                "memory": "100Mi"
             },
             "health_checks": {
                 "liveness_url": "main",

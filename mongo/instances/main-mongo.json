@@ -12,10 +12,10 @@
       "mongodb_version": "6.0.2",
       "authenticated": true,
       "size": {
-          "cpu": "1",
+          "cpu": "0.5",
           "memory": "3Gi",
           "instance_count": 1,
-          "volume": "1G",
+          "volume": "2G",
           "replica_count": 1
       }
   },
