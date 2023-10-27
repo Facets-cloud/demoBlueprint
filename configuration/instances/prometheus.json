@@ -1,0 +1,76 @@
+{
+  "kind": "configuration",
+  "for": "prometheus",
+  "version": "latest",
+  "disabled": false,
+  "provided": true,
+  "spec": {
+    "diskSize": "50G",
+    "alertmanager": {
+      "size": {
+        "cpu": "100m",
+        "memory": "100Mi"
+      }
+    },
+    "grafana": {
+      "size": {
+        "cpu": "100m",
+        "memory": "200Mi"
+      }
+    },
+    "prometheus": {
+      "size": {
+        "cpu": "100m",
+        "memory": "500Mi"
+      }
+    },
+    "prometheus-operator": {
+      "size": {
+        "cpu": "100m",
+        "memory": "200Mi"
+      }
+    },
+    "pushgateway": {
+      "size": {
+        "cpu": "100m",
+        "memory": "200Mi"
+      }
+    }
+  },
+  "advanced": {
+    "kube_prometheus_stack": {
+      "values": {
+        "prometheus": {
+          "prometheusSpec": {
+            "storageSpec": {
+              "volumeClaimTemplate": {
+                "spec": {
+                  "resources": {
+                    "requests": {
+                      "storage": "10Gi"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "alertmanager": {
+          "alertmanagerSpec": {
+            "storageSpec": {
+              "volumeClaimTemplate": {
+                "spec": {
+                  "resources": {
+                    "requests": {
+                      "storage": "1Gi"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
