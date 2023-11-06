@@ -23,7 +23,8 @@
     },
     "env": {
       "ATLAS_URI": "${mongo.main-mongo.out.interfaces.cluster.connection_string}",
-      "TITLE": "${blueprint.self.variables.TITLE}"
+      "TITLE": "${blueprint.self.variables.TITLE}",
+      "CACHE_URI": "${redis.mycache.out.interfaces.writer.connection_string}"
     },
     "runtime": {
       "health_checks": {
