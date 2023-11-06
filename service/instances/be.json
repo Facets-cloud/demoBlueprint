@@ -23,8 +23,7 @@
     },
     "env": {
       "ATLAS_URI": "${mongo.main-mongo.out.interfaces.cluster.connection_string}",
-      "TITLE": "${blueprint.self.variables.TITLE}",
-      "MYSQL_URI": "${mysql.my-database.out.interfaces.writer.connection_string}"
+      "TITLE": "${blueprint.self.variables.TITLE}"
     },
     "runtime": {
       "health_checks": {
