@@ -22,7 +22,7 @@
       }
     },
     "env": {
-      "ATLAS_URI": "mongodb://${mongo.main-mongo.out.interfaces.cluster.username}:${mongo.main-mongo.out.interfaces.cluster.password}@mongodb-main-mongo.default:27017",
+      "ATLAS_URI": "mongodb://${mongo.main-mongo.out.interfaces.cluster.username}:${mongo.main-mongo.out.interfaces.cluster.password}@mongodb-main-mongo.default.svc.cluster.local:27017",
       "TITLE": "${blueprint.self.variables.TITLE}"
     },
     "runtime": {
