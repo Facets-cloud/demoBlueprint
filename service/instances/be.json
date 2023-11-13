@@ -30,7 +30,7 @@
         "liveness_url": "/api/employees",
         "readiness_url": "/api/employees",
         "port": "5200",
-        "start_up_time": 100,
+        "start_up_time": 20,
         "timeout": 100,
         "period": 10
       },
