@@ -15,5 +15,8 @@
   "provided": false,
   "disabled": false,
   "version": "0.1",
-  "spec": {}
+  "spec": {
+    "retentation_days": 90,
+    "storage_size": "100"
+  }
 }
