@@ -13,7 +13,7 @@
   },
   "kind": "log_collector",
   "provided": false,
-  "disabled": false,
+  "disabled": true,
   "version": "0.1",
   "spec": {
     "retentation_days": 90,
