@@ -9,7 +9,7 @@
     }
   },
   "kind": "azure_storage_container",
-  "disabled": false,
+  "disabled": true,
   "version": "0.1",
   "spec": {}
 }
