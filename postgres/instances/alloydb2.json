@@ -8,7 +8,7 @@
   "depends_on": [],
   "kind": "postgres",
   "provided": false,
-  "disabled": true,
+  "disabled": false,
   "version": "0.1",
   "spec": {
     "postgres_version": "12.11",
