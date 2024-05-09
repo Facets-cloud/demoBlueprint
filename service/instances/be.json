@@ -1,5 +1,4 @@
 {
-  "$schema": "https://facets-cloud.github.io/facets-schemas/schemas/service/service.schema.json",
   "metadata": {
     "name": "retool"
   },
@@ -30,7 +29,7 @@
         "liveness_url": "/api/employees",
         "readiness_url": "/api/employees",
         "port": "5200",
-        "start_up_time": 20,
+        "start_up_time": 21,
         "timeout": 100,
         "period": 10
       },
