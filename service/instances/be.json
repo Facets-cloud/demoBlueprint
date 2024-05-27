@@ -41,7 +41,7 @@
       },
       "size": {
         "cpu": "100m",
-        "memory": "100Mi"
+        "memory": "110Mi"
       }
     }
   }
