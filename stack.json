@@ -22,7 +22,7 @@
     },
     "dummy": {
       "secret": true,
-      "value": "dummy",
+      "value": "dummy2",
       "global": false
     }
   },
