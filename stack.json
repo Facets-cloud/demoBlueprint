@@ -19,6 +19,11 @@
       "secret": false,
       "value": "na",
       "global": false
+    },
+    "dummy": {
+      "secret": true,
+      "value": "dummy",
+      "global": false
     }
   },
   "componentVersions": {
