@@ -3,7 +3,7 @@
     "name": "retool"
   },
   "disabled": false,
-  "flavor": "default",
+  "flavor": "k8s",
   "kind": "service",
   "version": "0.1",
   "spec": {
