@@ -2,7 +2,7 @@
   "metadata": {
     "name": "retool",
     "labels": {
-      "deliveryType": "OWN"
+      "deliveryType": "MANUAL"
     }
   },
   "disabled": false,
