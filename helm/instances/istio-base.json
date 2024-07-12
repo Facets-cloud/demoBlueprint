@@ -1,24 +1,20 @@
 {
+  "flavor": "default",
+  "metadata": {},
   "$schema": "https://facets-cloud.github.io/facets-schemas/schemas/helm/helm.schema.json",
   "kind": "helm",
-  "flavor": "k8s",
-  "disabled": true,
-  "metadata": {},
+  "provided": false,
+  "disabled": false,
   "version": "0.1",
   "spec": {
     "helm": {
-      "repository": "https://helm.datadoghq.com",
-      "chart": "datadog",
-      "namespace": "datadog",
-      "wait": false
+      "version": "1.19.3",
+      "chart": "base",
+      "repository": "https://istio-release.storage.googleapis.com/charts",
+      "wait": true,
+      "namespace": "istio-system",
+      "recreate_pods": false
     },
-    "values": {
-      "datadog": {
-        "podLabelsAsTags": {
-          "managed_by": "facets",
-          "env": "dev"
-        }
-      }
-    }
+    "values": {}
   }
 }
