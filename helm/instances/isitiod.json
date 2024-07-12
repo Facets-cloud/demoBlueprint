@@ -1,23 +1,50 @@
 {
-  "$schema": "https://facets-cloud.github.io/facets-schemas/schemas/helm/helm.schema.json",
-  "kind": "helm",
-  "flavor": "k8s",
-  "disabled": true,
+  "flavor": "default",
   "metadata": {},
+  "depends_on": [
+    "helm_simple.istio-base"
+  ],
+  "$schema": "https://facets-cloud.github.io/facets-schemas/schemas/helm/helm.schema.json",
+  "test": true,
+  "kind": "helm",
+  "provided": false,
+  "disabled": false,
   "version": "0.1",
   "spec": {
     "helm": {
-      "repository": "https://helm.datadoghq.com",
-      "chart": "datadog",
-      "namespace": "datadog",
-      "wait": false
+      "chart": "istiod",
+      "repository": "https://istio-release.storage.googleapis.com/charts",
+      "version": "1.19.3",
+      "namespace": "istio-system",
+      "wait": true
     },
     "values": {
-      "datadog": {
-        "podLabelsAsTags": {
-          "managed_by": "facets",
-          "env": "dev"
+      "global": {
+        "mountMtlsCerts": true,
+        "network": "infra-dev",
+        "multiCluster": {
+          "enabled": true,
+          "clusterName": ""
         }
+      },
+      "meshConfig": {
+        "accessLogFile": "/dev/stdout"
+      },
+      "pilot": {
+        "resources": {
+          "requests": {
+            "cpu": "500m",
+            "memory": "500Mi"
+          }
+        },
+        "tolerations": [
+          {
+            "effect": "NoSchedule",
+            "key": "components.gke.io/gke-managed-components",
+            "operator": "Equal",
+            "value": "true"
+          }
+        ]
       }
     }
   }
