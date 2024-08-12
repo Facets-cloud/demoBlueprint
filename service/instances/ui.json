@@ -3,7 +3,10 @@
   "flavor": "k8s",
   "version": "0.1",
   "metadata": {
-    "name": "ui"
+    "name": "ui",
+    "labels": {
+      "deliveryType": "OWN"
+    }
   },
   "disabled": false,
   "spec": {
@@ -18,7 +21,8 @@
         "type": "RollingUpdate",
         "max_available": 1,
         "max_unavailable": 0
-      }
+      },
+      "image": "${blueprint.self.artifacts.azure-demo-bp-ui}"
     },
     "runtime": {
       "size": {
