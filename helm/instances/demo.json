@@ -2,7 +2,11 @@
   "kind": "helm",
   "flavor": "k8s",
   "disabled": true,
-  "metadata": {},
+  "metadata": {
+    "labels": {
+      "deliveryType": "OWN"
+    }
+  },
   "version": "0.1",
   "spec": {
     "helm": {
@@ -20,6 +24,9 @@
           }
         }
       }
+    },
+    "release": {
+      "image": "${blueprint.self.artifacts.azure-demo-bp-demo}"
     }
   }
 }
