@@ -8,7 +8,7 @@
       "deliveryType": "OWN"
     }
   },
-  "disabled": false,
+  "disabled": true,
   "spec": {
     "type": "application",
     "enable_host_anti_affinity": false,
