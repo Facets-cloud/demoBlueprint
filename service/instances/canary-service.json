@@ -75,7 +75,7 @@
     }
   },
   "kind": "service",
-  "disabled": true,
+  "disabled": false,
   "version": "0.1",
   "spec": {
     "type": "application",
