@@ -21,8 +21,7 @@
         "type": "RollingUpdate",
         "max_available": 1,
         "max_unavailable": 0
-      },
-      "image": "${blueprint.self.artifacts.azure-demo-bp-ui}"
+      }
     },
     "runtime": {
       "size": {
