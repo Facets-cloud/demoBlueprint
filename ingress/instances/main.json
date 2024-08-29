@@ -32,8 +32,8 @@
         "comment": "back-end",
         "domain_prefix": "",
         "path": "/",
-        "port": "${service.canary.out.interfaces.http.port}",
-        "service_name": "${service.canary.out.interfaces.http.name}"
+        "port": "${service.canary-service.out.interfaces.http.port}",
+        "service_name": "${service.canary-service.out.interfaces.http.name}"
       }
     }
   },
