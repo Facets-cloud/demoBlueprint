@@ -1,7 +1,6 @@
 {
-  "$schema": "https://facets-cloud.github.io/facets-schemas/schemas/loadbalancer/loadbalancer.schema.json",
   "flavor": "nlb_nginx",
-  "disabled": true,
+  "disabled": false,
   "version": "0.1",
   "kind": "ingress",
   "metadata": {
