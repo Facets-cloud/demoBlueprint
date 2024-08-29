@@ -27,6 +27,13 @@
         "path": "/api/employees/",
         "port": "${service.be.out.interfaces.http.port}",
         "service_name": "${service.be.out.interfaces.http.name}"
+      },
+      "canary": {
+        "comment": "back-end",
+        "domain_prefix": "",
+        "path": "/",
+        "port": "${service.canary.out.interfaces.http.port}",
+        "service_name": "${service.canary.out.interfaces.http.name}"
       }
     }
   },
