@@ -6,7 +6,7 @@
     }
   },
   "kind": "service",
-  "disabled": false,
+  "disabled": true,
   "version": "0.1",
   "spec": {
     "enable_host_anti_affinity": false,
@@ -53,8 +53,7 @@
         "liveness_period": "30",
         "liveness_port": "8080",
         "liveness_start_up_time": "15"
-      },
-      "volumes": {}
+      }
     },
     "env": {
       "LOG_LEVEL": "INFO",
