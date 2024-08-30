@@ -1,54 +1,65 @@
 {
-  "$schema": "https://facets-cloud.github.io/facets-schemas/schemas/service/service.schema.json",
-  "flavor": "k8s",
+  "flavor": "default",
   "metadata": {
-    "labels": {
-      "deliveryType": "MANUAL"
+    "name": "opa-service"
+  },
+  "advanced": {
+    "common": {
+      "app_chart": {
+        "values": {
+          "security_context": {
+            "fsgroup": 1000,
+            "run_as_user": 1000,
+            "run_as_group": 1000
+          }
+        }
+      }
     }
   },
   "kind": "service",
   "disabled": true,
   "version": "0.1",
   "spec": {
+    "type": "statefulset",
     "enable_host_anti_affinity": false,
-    "type": "application",
-    "restart_policy": "Always",
+    "restart_policy": "OnFailure",
     "release": {
+      "image": "openpolicyagent/opa:0.63.0-debug",
       "strategy": {
         "type": "RollingUpdate"
-      },
-      "image": "${blueprint.self.artifacts.azure-demo-bp-opa-service}"
+      }
     },
     "runtime": {
-      "autoscaling": {
-        "scaling_on": "CPU",
-        "min": "1",
-        "max": "1",
-        "cpu_threshold": "50"
-      },
-      "ports": {},
       "size": {
-        "cpu": "300m",
-        "memory": "1Gi",
-        "cpu_limit": "1000m",
-        "memory_limit": "5Gi"
+        "cpu": "50m",
+        "memory": "249Mi"
       },
       "health_checks": {
-        "readiness_check_type": "PortCheck",
-        "readiness_timeout": "10",
-        "readiness_period": "30",
-        "readiness_port": "8080",
-        "readiness_start_up_time": "15",
-        "liveness_check_type": "PortCheck",
-        "liveness_timeout": "10",
-        "liveness_period": "30",
-        "liveness_port": "8080",
-        "liveness_start_up_time": "15"
+        "period": 12,
+        "port": 8181,
+        "timeout": 60,
+        "start_up_time": 10
       },
-      "volumes": {}
+      "autoscaling": {
+        "cpu_threshold": 50,
+        "max": 2,
+        "min": 1
+      },
+      "ports": {
+        "http": {
+          "protocol": "tcp",
+          "port": "8181"
+        }
+      },
+      "args": [
+        "run",
+        "--server",
+        "--addr",
+        ":8181",
+        "--set",
+        "storage.disk.directory=/var/opa"
+      ]
     },
-    "env": {
-      "LOG_LEVEL": "INFO"
-    }
+    "env": {}
   }
 }
