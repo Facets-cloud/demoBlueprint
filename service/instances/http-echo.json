@@ -1,54 +1,54 @@
 {
-  "$schema": "https://facets-cloud.github.io/facets-schemas/schemas/service/service.schema.json",
-  "flavor": "k8s",
+  "flavor": "default",
   "metadata": {
+    "name": "http-echo",
+    "label": "test-label-2",
+    "new-attrb": "test-attrb",
+    "annotations": {
+      "cluster-autoscaler.kubernetes.io/safe-to-evict": "false"
+    },
     "labels": {
-      "deliveryType": "MANUAL"
+      "team": "UI"
     }
   },
   "kind": "service",
   "disabled": true,
   "version": "0.1",
   "spec": {
-    "enable_host_anti_affinity": false,
     "type": "application",
-    "restart_policy": "Always",
+    "enable_host_anti_affinity": false,
+    "restart_policy": "OnFailure",
     "release": {
+      "image": "mendhak/http-https-echo:26",
       "strategy": {
         "type": "RollingUpdate"
-      },
-      "image": "${blueprint.self.artifacts.azure-demo-bp-http-echo}"
+      }
     },
     "runtime": {
-      "autoscaling": {
-        "scaling_on": "CPU",
-        "min": "1",
-        "max": "1",
-        "cpu_threshold": "50"
-      },
-      "ports": {},
       "size": {
-        "cpu": "300m",
-        "memory": "1Gi",
-        "cpu_limit": "1000m",
-        "memory_limit": "5Gi"
+        "cpu": "112m",
+        "memory": "210Mi"
       },
       "health_checks": {
-        "readiness_check_type": "PortCheck",
-        "readiness_timeout": "10",
-        "readiness_period": "30",
-        "readiness_port": "8080",
-        "readiness_start_up_time": "15",
-        "liveness_check_type": "PortCheck",
-        "liveness_timeout": "10",
-        "liveness_period": "30",
-        "liveness_port": "8080",
-        "liveness_start_up_time": "15"
+        "period": 10,
+        "port": "8080",
+        "timeout": 60,
+        "start_up_time": 10
       },
-      "volumes": {}
+      "autoscaling": {
+        "cpu_threshold": 50,
+        "max": 2,
+        "min": 1
+      },
+      "ports": {
+        "http": {
+          "protocol": "tcp",
+          "port": "8080"
+        }
+      }
     },
     "env": {
-      "LOG_LEVEL": "INFO"
+      "test": "test2"
     }
   }
 }
