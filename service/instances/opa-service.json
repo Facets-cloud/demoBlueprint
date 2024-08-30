@@ -3,39 +3,26 @@
   "metadata": {
     "name": "opa-service"
   },
-  "advanced": {
-    "common": {
-      "app_chart": {
-        "values": {
-          "security_context": {
-            "fsgroup": 1000,
-            "run_as_user": 1000,
-            "run_as_group": 1000
-          }
-        }
-      }
-    }
-  },
   "kind": "service",
-  "disabled": false,
+  "disabled": true,
   "version": "0.1",
   "spec": {
-    "type": "statefulset",
+    "type": "application",
     "enable_host_anti_affinity": false,
     "restart_policy": "OnFailure",
     "release": {
-      "image": "openpolicyagent/opa:0.63.0-debug",
+      "image": "openpolicyagent/opa:0.65.0-envoy-5-static",
       "strategy": {
         "type": "RollingUpdate"
       }
     },
     "runtime": {
       "size": {
-        "cpu": "50m",
-        "memory": "249Mi"
+        "cpu": "10m",
+        "memory": "50Mi"
       },
       "health_checks": {
-        "period": 12,
+        "period": 10,
         "port": 8181,
         "timeout": 60,
         "start_up_time": 10
@@ -55,11 +42,8 @@
         "run",
         "--server",
         "--addr",
-        ":8181",
-        "--set",
-        "storage.disk.directory=/var/opa"
+        ":8181"
       ]
-    },
-    "env": {}
+    }
   }
 }
