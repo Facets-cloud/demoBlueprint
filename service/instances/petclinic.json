@@ -16,10 +16,6 @@
       "strategy": {
         "type": "RollingUpdate"
       },
-      "build": {
-        "artifactory": "default",
-        "name": "replace-with-app-name"
-      },
       "image": "facetscloud/petclinic:1.0"
     },
     "runtime": {
@@ -56,11 +52,7 @@
       }
     },
     "env": {
-      "LOG_LEVEL": "INFO",
-      "POSTGRES_USER": "${postgres.postgres.out.interfaces.writer.username}",
-      "POSTGRES_PASS": "${postgres.postgres.out.interfaces.writer.password}",
-      "SPRING_PROFILES_ACTIVE": "postgres",
-      "POSTGRES_URL": "jdbc:postgresql://${postgres.postgres.out.interfaces.writer.host}/postgres"
+      "LOG_LEVEL": "INFO"
     }
   }
 }
