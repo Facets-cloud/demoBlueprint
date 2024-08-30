@@ -1,5 +1,4 @@
 {
-  "$schema": "https://facets-cloud.github.io/facets-schemas/schemas/service/service.schema.json",
   "flavor": "k8s",
   "metadata": {
     "labels": {
@@ -7,7 +6,7 @@
     }
   },
   "kind": "service",
-  "disabled": true,
+  "disabled": false,
   "version": "0.1",
   "spec": {
     "enable_host_anti_affinity": false,
@@ -17,7 +16,11 @@
       "strategy": {
         "type": "RollingUpdate"
       },
-      "image": "${blueprint.self.artifacts.azure-demo-bp-petclinic}"
+      "build": {
+        "artifactory": "default",
+        "name": "replace-with-app-name"
+      },
+      "image": "facetscloud/petclinic:1.0"
     },
     "runtime": {
       "autoscaling": {
@@ -26,7 +29,13 @@
         "max": "1",
         "cpu_threshold": "50"
       },
-      "ports": {},
+      "ports": {
+        "http": {
+          "port": "8080",
+          "service_port": "8080",
+          "protocol": "tcp"
+        }
+      },
       "size": {
         "cpu": "300m",
         "memory": "1Gi",
@@ -48,7 +57,11 @@
       "volumes": {}
     },
     "env": {
-      "LOG_LEVEL": "INFO"
+      "LOG_LEVEL": "INFO",
+      "POSTGRES_USER": "${postgres.postgres.out.interfaces.writer.username}",
+      "POSTGRES_PASS": "${postgres.postgres.out.interfaces.writer.password}",
+      "SPRING_PROFILES_ACTIVE": "postgres",
+      "POSTGRES_URL": "jdbc:postgresql://${postgres.postgres.out.interfaces.writer.host}/postgres"
     }
   }
 }
