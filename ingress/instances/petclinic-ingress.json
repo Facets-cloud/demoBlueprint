@@ -1,18 +1,23 @@
 {
-  "kind": "ingress",
   "flavor": "nginx_k8s_native",
-  "$schema": "https://facets-cloud.github.io/facets-schemas/schemas/ingress/ingress.schema.json",
-  "disabled": true,
-  "version": "0.1",
   "metadata": {
     "annotations": {}
   },
+  "kind": "ingress",
+  "disabled": false,
+  "version": "0.1",
   "spec": {
-    "private": false,
-    "basic_auth": false,
+    "basicAuth": false,
     "grpc": false,
-    "domains": {},
-    "rules": {},
-    "force_ssl_redirection": true
+    "private": false,
+    "rules": {
+      "petclinic": {
+        "service_name": "${service.petclinic.out.interfaces.http.name}",
+        "path": "/",
+        "port": "8080"
+      }
+    },
+    "force_ssl_redirection": true,
+    "env": {}
   }
 }
