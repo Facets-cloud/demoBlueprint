@@ -43,7 +43,7 @@
               },
               "spec": {
                 "hosts": [
-                  "canary.main-azure-demo-bp-azure-child.console.facets.cloud/",
+                  "canary.main-azure-demo-bp-azure-child.console.facets.cloud",
                   "canary-service.default.svc.cluster.local"
                 ],
                 "http": [
