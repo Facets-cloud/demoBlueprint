@@ -15,7 +15,7 @@
               "apiVersion": "networking.istio.io/v1alpha3",
               "kind": "DestinationRule",
               "metadata": {
-                "name": "bg-destination"
+                "name": "canary-service"
               },
               "spec": {
                 "host": "canary-service",
@@ -43,7 +43,7 @@
               },
               "spec": {
                 "hosts": [
-                  "bgt.tools-infra-dev-gcp-infra-dev.infra.facetsdev.click",
+                  "canary.main-azure-demo-bp-azure-child.console.facets.cloud/",
                   "canary-service.default.svc.cluster.local"
                 ],
                 "http": [
@@ -84,7 +84,7 @@
     "release": {
       "image": "hashicorp/http-echo:latest",
       "strategy": {
-        "type": "BlueGreen",
+        "type": "Canary",
         "canary_strategy": {
           "enable_service": false,
           "steps": [
@@ -98,7 +98,7 @@
           "traffic_routing": {
             "istio": {
               "destinationRule": {
-                "name": "bg-destination",
+                "name": "canary-service",
                 "canarySubsetName": "canary",
                 "stableSubsetName": "stable"
               },
@@ -113,8 +113,8 @@
         }
       },
       "build": {
-        "artifactory": "facets-config-auto",
-        "name": "bluegreen"
+        "artifactory": "NA",
+        "name": "NA"
       }
     },
     "runtime": {
@@ -142,11 +142,11 @@
         }
       },
       "args": [
-        "-text=hello-world-v2"
+        "-text=hello-world-v1"
       ]
     },
     "env": {
-      "log": "asdarrqwe1"
+      "log": "asdarrqwe1111"
     }
   }
 }
